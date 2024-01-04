@@ -49,8 +49,8 @@ public:
 void s0lve() {
 
 
-//    orderedSet<int, less_equal<int>> os; // already by default use as set
-//    orderedSet<int, less<int>> os2;
+//    orderedSet<int, less<int>> os2; // already by default use as set
+//    orderedSet<int, less_equal<int>> os;
 //    orderedSet<int, greater<int>> os3;
 //    orderedSet<int, greater_equal<int>> os4;
 
