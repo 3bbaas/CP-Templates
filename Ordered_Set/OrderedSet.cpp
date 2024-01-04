@@ -1,10 +1,3 @@
-#ifdef ONLINE_JUDGE
-#pragma GCC optimize("O3")
-#pragma GCC optimize("Ofast,unroll-loops")
-#pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
-#pragma GCC target("avx,avx2,fma")
-#endif
-
 #include <bits/stdc++.h>
 #include<ext/pb_ds/assoc_container.hpp>
 #include<ext/pb_ds/tree_policy.hpp>
@@ -12,61 +5,19 @@
 using namespace std;
 using namespace __gnu_pbds;
 
-#define ln '\n'
-#define ll long long
-#define pp pop_back()
-#define ld long double
-#define nl cout << '\n'
-#define _ev(x) !(x & 1)
-#define pb emplace_back
-#define clr(x) x.clear()
-#define N ((int)2e5 + 5)
-#define oo ((ll)1e17 + 9)
-#define mod ((ll)1e9 + 7)
-#define no cout << "NO\n"
-#define yes cout << "YES\n"
-#define sz(x) (int)(x).size()
-#define pbk(x) push_back((x))
-#define all(x) x.begin(), x.end()
-#define nod(x) (floor(log10(x)) + 1)
-#define alr(arr) arr.rbegin(), arr.rend()
-#define kill(x) return void(cout << x << ln)
-#define _m(ar, n) memset((ar),n,sizeof (ar))
-#define db(xx) cout << #xx << ": " << xx << ln
-#define _uni(v) v.erase(unique(all(v)), v.end())
-#define fix(pre) cout << setprecision(pre) << fixed
-
-template<typename T>
-using orderedSetPBDS = tree <T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-
-void _3bbas_(string _);
-
-template<typename T = int>
-ostream &operator<<(ostream &out, const vector <T> &vec) {
-    for (const T &x: vec) out << x << ' ';
-    return out;
-}
-
-template<typename T = int>
-istream &operator>>(istream &in, vector <T> &vec) {
-    for (auto &x: vec) in >> x;
-    return in;
-}
-
-int dx[] = {1, -1, 0, 0}, dy[] = {0, 0, 1, -1},
-        dx8[] = {+0, +0, -1, +1, +1, +1, -1, -1},
-        dy8[] = {-1, +1, +0, +0, +1, -1, +1, -1};
+template<typename T, typename ordered = less<T>>
+using orderedSetPBDS = tree<T, null_type, ordered, rb_tree_tag, tree_order_statistics_node_update>;
 
 /// ◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆
 
-template<typename T>
+template<typename T, typename ordered = less<T>>
 class orderedSet {
 private:
     bool isEmpty() { return __os.empty(); }
 
 public:
 
-    orderedSetPBDS<T> __os;
+    orderedSetPBDS<T, ordered> __os;
 
     orderedSet() { __os.clear(); }
 
@@ -74,36 +25,38 @@ public:
 
     int siz() { return __os.size(); }
 
-    orderedSetPBDS<T> am() { return __os; }
+    orderedSetPBDS<T, ordered> am() { return __os; }
 
-    bool erase(T __item) { !isEmpty() ? __os.erase(__item) : 0; }
+    bool erase(T __item) { if (!isEmpty()) { __os.erase(__item); return 1; } else return 0; }
 
-    void push(T __item) { __os.insert(__item); }
+    inline void push(T __item) { __os.insert(__item); }
 
-    void create(vector <T> &__vec) { for (const T &i: __vec) __os.insert(i); }
+    void create(vector<T> &__vec) { for (const T &i: __vec) __os.insert(i); }
 
-    int find(T __item) {
-        return __item == *__os.find_by_order(__os.order_of_key(__item)) ? __os.order_of_key(__item) : -1;
-    }
+    int find(T __item) { return __item == *__os.find_by_order(__os.order_of_key(__item)) ? __os.order_of_key(__item) : -1; }
 
     T operator[](int __idx) { return *__os.find_by_order(__idx); }
 
-    void operator=(vector <T> const &__vec) { for (const T &__i: __vec) __os.insert(__i); }
+    void operator=(vector<T> const &__vec) { for (const T &__i: __vec) __os.insert(__i); }
 
     int lwr(T __item) { return __os.lower_bound(__item) != __os.end() ? *__os.lower_bound(__item) : -1; }
 
     int upr(T __item) { return __os.upper_bound(__item) != __os.end() ? *__os.upper_bound(__item) : -1; }
 
-    friend ostream &operator<<(ostream &out, const orderedSet &os) {
-        for (const T x: os.__os)
-            out << x << ' ';
-        return out;
-    }
+    friend ostream &operator<<(ostream &out, const orderedSet &os) { for (const T x: os.__os) out << x << ' '; return out; }
 };
 
 void s0lve() {
-    orderedSet<int> os;
-//    int n;
+
+
+//    orderedSet<int, less_equal<int>> os; // already by default use as set
+//    orderedSet<int, less<int>> os2;
+//    orderedSet<int, greater<int>> os3;
+//    orderedSet<int, greater_equal<int>> os4;
+
+    orderedSet<int> os;// already by default use as set
+
+    //    int n;
 //    cin >> n; // 5
 //    for (int a, i = 0; i < n; ++i) {
 //        cin >> a;
@@ -138,20 +91,9 @@ void s0lve() {
     }
 
 }
-
 /// ◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆
 
 signed main() {
-    _3bbas_(" »»———-　Practice Makes Perfect　———-«« ");
-    int tst = 1;
-//    cin >> tst;
-    while (tst--) s0lve();
+    s0lve();
     return 0;
-}
-
-inline void _3bbas_(string _) {
-    cin.tie(0)->sync_with_stdio(0);
-#ifndef ONLINE_JUDGE
-    freopen(".out", "w", stdout);
-#endif
 }
