@@ -37,18 +37,18 @@ using namespace __gnu_pbds;
 #define fix(pre) cout << setprecision(pre) << fixed
 
 template<typename T>
-using orderedSetPBDS = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+using orderedSetPBDS = tree <T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
 void _3bbas_(string _);
 
 template<typename T = int>
-ostream &operator<<(ostream &out, const vector<T> &vec) {
+ostream &operator<<(ostream &out, const vector <T> &vec) {
     for (const T &x: vec) out << x << ' ';
     return out;
 }
 
 template<typename T = int>
-istream &operator>>(istream &in, vector<T> &vec) {
+istream &operator>>(istream &in, vector <T> &vec) {
     for (auto &x: vec) in >> x;
     return in;
 }
@@ -61,6 +61,9 @@ int dx[] = {1, -1, 0, 0}, dy[] = {0, 0, 1, -1},
 
 template<typename T>
 class orderedSet {
+private:
+    bool isEmpty() { return __os.empty(); }
+
 public:
 
     orderedSetPBDS<T> __os;
@@ -73,17 +76,23 @@ public:
 
     orderedSetPBDS<T> am() { return __os; }
 
-    void erase(T __item) { __os.erase(__item); }
+    bool erase(T __item) { !isEmpty() ? __os.erase(__item) : 0; }
 
     void push(T __item) { __os.insert(__item); }
+
+    void create(vector <T> &__vec) { for (const T &i: __vec) __os.insert(i); }
+
+    int find(T __item) {
+        return __item == *__os.find_by_order(__os.order_of_key(__item)) ? __os.order_of_key(__item) : -1;
+    }
+
+    T operator[](int __idx) { return *__os.find_by_order(__idx); }
+
+    void operator=(vector <T> const &__vec) { for (const T &__i: __vec) __os.insert(__i); }
 
     int lwr(T __item) { return __os.lower_bound(__item) != __os.end() ? *__os.lower_bound(__item) : -1; }
 
     int upr(T __item) { return __os.upper_bound(__item) != __os.end() ? *__os.upper_bound(__item) : -1; }
-
-    int find(T __item) { return __os.order_of_key(__item); }
-
-    T operator[](int __idx) { return *__os.find_by_order(__idx); }
 
     friend ostream &operator<<(ostream &out, const orderedSet &os) {
         for (const T x: os.__os)
@@ -93,15 +102,24 @@ public:
 };
 
 void s0lve() {
-
     orderedSet<int> os;
-    int n; cin >> n; // 5
-    for (int a, i = 0; i < n; ++i) { cin >> a; os.push(a); } // 11 22 33 44 55
+//    int n;
+//    cin >> n; // 5
+//    for (int a, i = 0; i < n; ++i) {
+//        cin >> a;
+//        os.push(a);
+//    } // 11 22 33 44 55
+
+    vector<int> v = {11, 22, 33, 44};
+
+    os = v; //    os.create(v);
 
     cout << " => OrderedSet : " << os << "\n"; //  => OrderedSet : 11 22 33 44 55
     cout << " => Size : " << os.siz() << "\n"; //  => Size : 5
 
     cout << " => Index of \"33\" : " << os.find(33) << "\n"; //  => Index of "33" : 2
+    cout << " => Index of \"33\" : " << os.find(34) << "\n"; //  => Index of "33" : 2
+    cout << " => Index of \"33\" : " << os.find(35) << "\n"; //  => Index of "33" : 2
     cout << " => Get Value of index \"2\" : " << os[2] << "\n"; //  => Get Value of index "2" : 33
 
     cout << " => Get first element >= \"44\" : " << os.lwr(44) << "\n"; // => Get first element >= "44" : 44
@@ -112,12 +130,13 @@ void s0lve() {
     cout << " => Get first element >  \"55\" : " << os.upr(55) << "\n"; // => Get first element >  "44" : -1
 
     cout << " => Return OrderedSet : [";
-    for (auto &i : os.am()){
+    for (auto &i: os.am()) {
         if (os.upr(i) != -1)
             cout << i << ", ";
         else
             cout << i << "]\n";
     }
+
 }
 
 /// ◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆
