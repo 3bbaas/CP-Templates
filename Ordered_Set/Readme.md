@@ -8,8 +8,8 @@
 
 using namespace __gnu_pbds;
 
-template<typename T>
-using orderedSetPBDS = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+template<typename T, typename ordered = less<T>>
+using orderedSetPBDS = tree<T, null_type, ordered, rb_tree_tag, tree_order_statistics_node_update>;
 
 ```
 
