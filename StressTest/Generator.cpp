@@ -9,7 +9,7 @@ template<typename T>
 using ui = uniform_int_distribution<T>;
 
 
-class Gen {
+class gen {
 public:
     template<typename T = int>
     T get(T Min = 0, T Max = 1e8) {
@@ -23,6 +23,20 @@ public:
         for (auto &i: vec) i = get<T>(Min, Max);
         if (srt == 1) { sort(vec.begin(), vec.end(), greater<>()); }
         else if (srt == 2) { sort(vec.begin(), vec.end()); }
+        else shuffle(vec.begin(), vec.end(), rng);
+        return vec;
+    }
+
+    template<typename T = int>
+    vector<T> getDistinctArr(int size, int srt = 0, T Min = 0, T Max = 1e8) {
+        vector<T> vec(size);
+        set<T> s;
+        while (s.size() < size) { s.insert(gen(Min, Max)); }
+        int idx = 0;
+        for (auto &i: s) vec[idx++] = i;
+        if (srt == 1) { sort(vec.begin(), vec.end(), greater<>()); }
+//        else if (srt == 2) { vec }
+        else shuffle(vec.begin(), vec.end(), rng);
         return vec;
     }
 
