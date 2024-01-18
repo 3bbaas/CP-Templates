@@ -3,21 +3,21 @@
 ## Table of content
 
 - [Code Templates](#code-templates)
-  - [Table of content](#table-of-content)
-    - [Number Theory](#number-theory)
-    - [Tutorials](#tutorials)
-    - [Check number if prime or not](#check-number-if-prime-or-not)
-    - [**Prime Factorization**](#prime-factorization)
-    - [**Get Divisors**](#get-divisors)
-    - [Sieve of Eratosthenes](#sieve-of-eratosthenes)
-    - [Power](#power)
-    - [Power with mod](#power-with-mod)
-    - [GCD](#gcd)
-    - [SPF](#spf)
-    - [Sum of powers](#sum-of-powers)
-    - [Check Number if perfect square](#check-number-if-perfect-square)
-  - [Math](#math)
-    - [Factorial](#factorial)
+    - [Table of content](#table-of-content)
+        - [Number Theory](#number-theory)
+        - [Tutorials](#tutorials)
+        - [Check number if prime or not](#check-number-if-prime-or-not)
+        - [**Prime Factorization**](#prime-factorization)
+        - [**Get Divisors**](#get-divisors)
+        - [Sieve of Eratosthenes](#sieve-of-eratosthenes)
+        - [Power](#power)
+        - [Power with mod](#power-with-mod)
+        - [GCD](#gcd)
+        - [SPF](#spf)
+        - [Sum of powers](#sum-of-powers)
+        - [Check Number if perfect square](#check-number-if-perfect-square)
+    - [Math](#math)
+        - [Factorial](#factorial)
 
 ---
 
@@ -26,7 +26,7 @@
 ### Tutorials
 
 | Source                    | Content                                                            | Type  | link                                                                 |
-| ------------------------- | ------------------------------------------------------------------ | ----- | -------------------------------------------------------------------- |
+|---------------------------|--------------------------------------------------------------------|-------|----------------------------------------------------------------------|
 | Mahmoud Ayman's Session 1 | *Divisors, GCD, LCM, Prime Factorization, Pow, PowMod, Sieve, lpf* | Video | [link](https://youtu.be/-ptnoz7Us_I?si=hDSCoXu97gNR6PPm)             |
 | Mahmoud Ayman's Session 2 | *Modular Arithmetic, ...*                                          | Video | [link](https://youtu.be/n8_mqm2amzY?si=ck64qVKtoZsFRCd8)             |
 | Mostafa Saad              | _Primes_                                                           | Video | [link](https://youtu.be/VZBfW08ECgA)                                 |
@@ -260,9 +260,9 @@ is equivalent to
 
 ```cpp
     com[0] = initValue;
-    for (int i = 0; i < sizeOfArray - 1; ++i) {
-        com[i + 1] += com[i] + 1;
-    }
+for (int i = 0; i < sizeOfArray - 1; ++i) {
+com[i + 1] += com[i] + 1;
+}
 ```
 
 </details>
