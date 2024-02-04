@@ -175,7 +175,7 @@ ll powMod(ll x, ll y) {
     while (y) {
         if (y % 2) ans *= ret, ans %= mod;
         ret *= ret, ret %= mod;
-        y >>= 2;
+        y >>= 1;
     }
     return ans;
 }
