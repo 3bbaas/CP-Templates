@@ -202,6 +202,21 @@ ll gcd(ll a, ll b) {
 
 ---
 
+### LCM
+
+Idea:
+> $\cdots$
+
+Complexity time: $O( \log n )$
+
+Code:
+
+```cpp
+ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
+```
+
+---
+
 ### SPF
 
 Idea:
