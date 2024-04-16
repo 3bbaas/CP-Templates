@@ -1,15 +1,3 @@
-#include "bits/stdc++.h"
-using namespace std;
-
-#define ll long long
-#define pb emplace_back
-#define sz(_) (int)(_).size()
-#define all(_) _.begin(), _.end()
-
-void _3bbas_(string _1);
-
-/// ◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆
-
 template<class T = int, T ignoreValue = LLONG_MAX> class SqrtDecomposition {
 public:
     int sq_rt, n, len;
@@ -61,21 +49,4 @@ void s0lve() {
     // ..
     // ..
 
-}
-
-/// ◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆──◇──◆
-
-signed main() {
-    _3bbas_(" »»———-　Practice Makes Perfect　———-«« ");
-    int tst = 1;
-    //    cin >> tst;
-    while (tst--) s0lve();
-    return 0;
-}
-
-void _3bbas_(string _1) {
-    cin.tie(0)->sync_with_stdio(0);
-#ifndef ONLINE_JUDGE
-    freopen(".out", "w", stdout);
-#endif
 }
