@@ -17,7 +17,7 @@ using orderedSetPBDS = tree<T, null_type, ordered, rb_tree_tag, tree_order_stati
 
 ## Source Code
 
-[Get from Here](./OrderedSet.cpp)
+[Get from Here](OrderedSet.cpp)
 
 ---
 

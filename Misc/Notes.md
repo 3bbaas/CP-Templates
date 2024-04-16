@@ -21,7 +21,7 @@
 <details>
 <summary>divisible by 11 steps</summary>
 <center>
-	<img src="./src/divisible by 11.webp">
+	<img src="../src/divisible%20by%2011.webp">
 	
 [img src](https://www.mathwarehouse.com/arithmetic/numbers/divisibility-rules-and-tests.php#divisibilityBy11)
 </center>
