@@ -25,10 +25,10 @@ void sieve() {
 
 ### Problems
 
-| Problem  | src   | sol   |
-|-------------- | -------------- | -------------- |
-| [Printing some primes](https://www.spoj.com/problems/TDPRIMES/)    | spoj     | -     |
-|[Almost Prime](https://codeforces.com/contest/26/problem/A)|Codeforces|-|
+| Problem                                                         | src        | sol |
+|-----------------------------------------------------------------|------------|-----|
+| [Printing some primes](https://www.spoj.com/problems/TDPRIMES/) | spoj       | -   |
+| [Almost Prime](https://codeforces.com/contest/26/problem/A)     | Codeforces | -   |
 
 ---
 
