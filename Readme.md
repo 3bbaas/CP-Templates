@@ -148,6 +148,7 @@ Complexity time: $\cdots$
 Code:
 
 ```cpp
+
 ll power(ll a, ll b) {
     if (b == 0)return 1;
     if (b == 1)return a;
