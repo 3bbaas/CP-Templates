@@ -1,4 +1,4 @@
-template<class t = int, class merge = function<t(const t &, const t &)>, t ign = t(1e9)>
+template<class t = int, t ign = t(1e9), class merge = function<t(const t &, const t &)>>
 struct sparseTable {
 #define lg (32 - __builtin_clz(n))
 #define blk (1 << msk)
